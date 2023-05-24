@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Remove scrollbars */
+  
+
+  div {
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  /* WebKit (Chrome, Safari) */
+  div::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Firefox */
+  div {
+    scrollbar-width: none;
+  }
+  

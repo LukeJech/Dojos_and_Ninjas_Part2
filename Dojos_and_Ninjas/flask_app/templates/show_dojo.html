@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Dojos And Ninjas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-zinc-900 text-gray-100">
+    <div class="mx-auto w-4/5 mt-4">
+        <div class="relative overflow-hidden rounded-lg bg-cover bg-no-repeat text-center" style="background-image: url('{{ url_for('static', filename='images/temple.jpg') }}'); height: 800px">
+            <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full p-12 overflow-hidden bg-fixed flex flex-col items-start justify-center" style="background-color: rgba(0, 0, 0, 0.6)">
+                <div class="ml-24 text-white w-1/2">
+
+                        <h2 class="mb-8 text-4xl font-semibold text-left">{{dojo.name}} Ninjas</h2>
+                        <table class="border-2 border-white rounded-md mb-4">
+                            <thead>
+                                <tr>
+                                    <th class="px-4 py-2">First Name</th>
+                                    <th class="px-4 py-2">Last Name</th>
+                                    <th class="px-4 py-2">Age Name</th>
+                                    <th class="px-4 py-2">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for ninja in dojo.ninjas %}
+                                <tr>
+                                    <td class="px-4 py-2">{{ ninja.first_name }}</td>
+                                    <td class="px-4 py-2">{{ ninja.last_name }}</td>
+                                    <td class="px-4 py-2">{{ ninja.age }}</td>
+                                    <td class="px-4 py-2">
+                                        <a href="/ninjas/edit/{{ninja.id}}" class="underline text-blue-400 mt-8">Edit</a> │
+                                        <a href="/ninjas/delete/{{ninja.id}}/{{ninja.dojo_id}}" class="underline text-blue-400 mt-8">Delete</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <p class="text-left"><a href="/dojos" class="underline text-blue-500 mt-8">Home</a></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+<!-- Format for adding images -->
+<!-- <img src="{{ url_for('static', filename='images/img.png') }}"> -->
+
